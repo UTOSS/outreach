@@ -1,12 +1,10 @@
 ﻿import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/issues", label: "Issues" },
+  { href: "/leadership", label: "Leadership" },
   { href: "/contributors", label: "Contributors" },
   { href: "/events", label: "Events" },
   { href: "/blog", label: "Blog" },

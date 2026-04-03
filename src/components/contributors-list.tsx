@@ -1,11 +1,21 @@
 import { Card } from "@/components/ui/card";
 import { contributors } from "@/lib/mock";
 
-export function ContributorsList() {
+type ContributorsListProps = {
+  excludeIds?: string[];
+};
+
+export function ContributorsList({
+  excludeIds = [],
+}: ContributorsListProps) {
+  const visibleContributors = contributors.filter(
+    (person) => !excludeIds.includes(person.id),
+  );
+
   return (
     <div className="space-y-4">
       <Card className="divide-y divide-[var(--utoss-border)]">
-        {contributors.map((person) => (
+        {visibleContributors.map((person) => (
           <div
             key={person.id}
             className="flex flex-wrap items-center justify-between gap-4 p-4"
