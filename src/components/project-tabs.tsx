@@ -1,30 +1,41 @@
 ﻿"use client";
 
-import type { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Issue, Project } from "@/lib/mock";
 
-const markdownComponents = {
-  h1: ({ children }: { children: ReactNode }) => (
-    <h2 className="text-lg font-semibold">{children}</h2>
+const markdownComponents: Components = {
+  h1: ({ children, ...props }) => (
+    <h2 className="text-lg font-semibold" {...props}>
+      {children}
+    </h2>
   ),
-  h2: ({ children }: { children: ReactNode }) => (
-    <h3 className="text-base font-semibold">{children}</h3>
+  h2: ({ children, ...props }) => (
+    <h3 className="text-base font-semibold" {...props}>
+      {children}
+    </h3>
   ),
-  p: ({ children }: { children: ReactNode }) => (
-    <p className="text-sm text-[var(--utoss-muted)]">{children}</p>
+  p: ({ children, ...props }) => (
+    <p className="text-sm text-[var(--utoss-muted)]" {...props}>
+      {children}
+    </p>
   ),
-  ul: ({ children }: { children: ReactNode }) => (
-    <ul className="list-disc space-y-1 pl-5 text-sm text-[var(--utoss-muted)]">
+  ul: ({ children, ...props }) => (
+    <ul
+      className="list-disc space-y-1 pl-5 text-sm text-[var(--utoss-muted)]"
+      {...props}
+    >
       {children}
     </ul>
   ),
-  li: ({ children }: { children: ReactNode }) => (
-    <li className="text-sm text-[var(--utoss-muted)]">{children}</li>
+  li: ({ children, ...props }) => (
+    <li className="text-sm text-[var(--utoss-muted)]" {...props}>
+      {children}
+    </li>
   ),
 };
 
@@ -104,6 +115,5 @@ export function ProjectTabs({ project, projectIssues }: { project: Project; proj
     </Tabs>
   );
 }
-
 
 
